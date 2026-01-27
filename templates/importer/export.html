@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Export Data</h1>
+        <a href="{% url 'importer:dashboard' %}" class="btn btn-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </a>
+    </div>
+    
+    <div class="card shadow">
+        <div class="card-body">
+            <p class="lead">Select the data you want to export as CSV.</p>
+            
+            <form method="post" action="{% url 'importer:export_data' %}">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label class="font-weight-bold">Choose Model:</label>
+                    <div class="mt-3">
+                        <div class="custom-control custom-radio mb-3">
+                            <input type="radio" id="student" name="model_type" value="student" class="custom-control-input" checked>
+                            <label class="custom-control-label" for="student">
+                                <strong>Students</strong>
+                                <p class="text-muted mb-0">Export all student records with fields: student_id, surname, first_name, birth_date, program, registration_date, created_at, updated_at.</p>
+                            </label>
+                        </div>
+                        
+                        <div class="custom-control custom-radio mb-3">
+                            <input type="radio" id="course" name="model_type" value="course" class="custom-control-input">
+                            <label class="custom-control-label" for="course">
+                                <strong>Courses</strong>
+                                <p class="text-muted mb-0">Export all course records with fields: course_id, title, start_date, lecture_hours, created_at, updated_at.</p>
+                            </label>
+                        </div>
+                        
+                        <div class="custom-control custom-radio mb-3">
+                            <input type="radio" id="enrolment" name="model_type" value="enrolment" class="custom-control-input">
+                            <label class="custom-control-label" for="enrolment">
+                                <strong>Enrolments</strong>
+                                <p class="text-muted mb-0">Export all enrolment records with student and course details: student_id, student_surname, student_first_name, course_id, course_title, enrolment_date, created_at, updated_at.</p>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="alert alert-info" role="alert">
+                    <i class="fas fa-info-circle"></i> The export will generate a CSV file that you can download. Depending on the amount of data, it may take a few seconds.
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="fas fa-download"></i> Export CSV
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="mt-5">
+        <h4>Export Statistics</h4>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ student_count }}</h5>
+                        <p class="card-text">Students</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-success mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ course_count }}</h5>
+                        <p class="card-text">Courses</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-white bg-warning mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ enrolment_count }}</h5>
+                        <p class="card-text">Enrolments</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

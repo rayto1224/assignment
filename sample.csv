@@ -1,0 +1,21 @@
+student_id,surname,first_name,birth_date,program,registration_date,course_id,title,start_date,lecture_hours,enrolment_date
+S93810,Wong,Ka,2003-04-26,Bachelor of Engineering (Electrical),2021-05-16,C328,Calculus I,2023-07-29,75,2021-08-13
+S87397,Wang,Ka,1995-05-03,Bachelor of Computer Science,2021-03-23,C338,Organic Chemistry,2023-02-24,75,2021-10-12
+S95181,Leung,Tsz,1999-09-15,Bachelor of Business Administration,2022-07-08,C703,Data Structures and Algorithms,2023-01-14,36,2024-06-21
+S65392,Zhang,Man,1996-09-28,Bachelor of Business Administration,2024-04-12,C444,Database Systems,2023-07-09,60,2024-07-20
+S57052,Zhang,Yin,1997-12-19,Bachelor of Accounting and Finance,2020-03-29,C847,Business Statistics,2023-09-13,60,2020-06-17
+S82357,Liu,Hoi,2001-12-08,Bachelor of Accounting and Finance,2022-01-10,C691,Linear Algebra,2023-05-23,30,2023-11-18
+S39871,Liu,Wing,2004-08-04,Bachelor of Business Administration,2024-11-09,C203,Machine Learning Fundamentals,2024-07-23,60,2026-08-21
+S57819,Lee,Yan,1998-12-26,Bachelor of Business Administration,2023-10-04,C373,Software Engineering,2023-05-27,75,2025-07-15
+S32431,Chen,Sze,1997-09-29,Bachelor of Business Administration,2022-08-04,C488,Data Structures and Algorithms,2024-03-25,45,2022-09-30
+S40021,Chan,Yan,1999-07-02,Bachelor of Engineering (Electrical),2020-05-15,C316,Computer Networks,2024-10-06,36,2022-03-17
+S75435,Wang,Hoi,2000-02-23,Bachelor of Business Administration,2021-06-26,C242,Linear Algebra,2024-06-22,75,2022-09-07
+S86484,Wang,Yan,1997-06-17,Bachelor of Business Administration,2022-11-09,C605,Database Systems,2023-04-07,30,2023-04-14
+S92240,Lee,Hoi,1999-09-26,Bachelor of Science in Biology,2020-05-10,C494,Machine Learning Fundamentals,2025-08-16,75,2021-01-22
+S82512,Chan,Hoi,2003-01-31,Bachelor of Computer Science,2023-10-28,C649,Artificial Intelligence,2024-06-30,45,2024-02-19
+S48469,Wang,Yiu,2000-02-02,Bachelor of Computer Science,2024-01-18,C996,Software Engineering,2024-06-23,75,2024-07-18
+S76542,Wong,Hoi,1998-05-07,Bachelor of Accounting and Finance,2023-08-01,C619,Microeconomics,2024-02-12,36,2024-08-17
+S31174,Chen,Tsz,2005-04-20,Bachelor of Computer Science,2023-05-11,C431,Business Statistics,2023-02-09,30,2024-05-16
+S50306,Cheung,Ka,1997-09-13,Bachelor of Science in Biology,2020-06-10,C187,Software Engineering,2025-09-22,30,2021-12-07
+S26483,Lee,Hoi,2000-04-30,Bachelor of Science in Biology,2020-12-04,C371,Organic Chemistry,2025-05-16,36,2022-06-09
+S36365,Leung,Man,1999-06-23,Master of Data Science,2023-08-23,C482,Business Statistics,2025-11-25,60,2023-12-24

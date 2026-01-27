@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Import Dashboard</h1>
+        <div>
+            <a href="{% url 'importer:export_data' %}" class="btn btn-success mr-2">
+                <i class="fas fa-download"></i> Export Data
+            </a>
+            <a href="{% url 'importer:upload_csv' %}" class="btn btn-primary">
+                <i class="fas fa-upload"></i> Upload New CSV
+            </a>
+        </div>
+    </div>
+    
+    {% if tasks %}
+    <div class="card shadow">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Progress</th>
+                            <th scope="col">Processed/Total Rows</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for task in tasks %}
+                        <tr>
+                            <td><strong>#{{ task.id }}</strong></td>
+                            <td>
+                                <span id="status-{{ task.id }}" class="badge 
+                                    {% if task.status == 'COMPLETED' %}badge-success
+                                    {% elif task.status == 'FAILED' %}badge-danger
+                                    {% elif task.status == 'PROCESSING' or task.status == 'CLEANSING' or task.status == 'FORMATTING' or task.status == 'IMPORTING' %}badge-warning
+                                    {% else %}badge-secondary{% endif %}">
+                                    {{ task.status }}
+                                </span>
+                            </td>
+                            <td>
+                                <div class="progress" style="height: 20px;">
+                                    <div id="progress-bar-{{ task.id }}" 
+                                         class="progress-bar 
+                                         {% if task.status == 'COMPLETED' %}bg-success
+                                         {% elif task.status == 'FAILED' %}bg-danger
+                                         {% else %}bg-warning{% endif %}" 
+                                         role="progressbar" 
+                                         style="width: {{ task.progress }}%;"
+                                         aria-valuenow="{{ task.progress }}" 
+                                         aria-valuemin="0" 
+                                         aria-valuemax="100">
+                                        <span id="progress-{{ task.id }}">{{ task.progress }}%</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td id="rows-{{ task.id }}">{{ task.processed_rows }} / {{ task.total_rows }}</td>
+                            <td>
+                                <a href="{% url 'importer:error_log' task.id %}" class="btn btn-sm btn-info">
+                                    <i class="fas fa-exclamation-circle"></i> View Errors
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">No import tasks yet!</h4>
+        <p>Get started by uploading your first CSV file.</p>
+        <hr>
+        <a href="{% url 'importer:upload_csv' %}" class="btn btn-primary">Upload CSV</a>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    // Simple polling for progress (every 5s)
+    setInterval(function() {
+        {% for task in tasks %}
+        fetch('{% url "importer:progress" task.id %}')
+            .then(response => response.json())
+            .then(data => {
+                // Update status badge
+                const statusBadge = document.getElementById('status-{{ task.id }}');
+                statusBadge.innerText = data.status;
+                
+                // Update badge class based on status
+                statusBadge.className = 'badge ';
+                if (data.status === 'COMPLETED') {
+                    statusBadge.className += 'badge-success';
+                } else if (data.status === 'FAILED') {
+                    statusBadge.className += 'badge-danger';
+                } else if (['PROCESSING', 'CLEANSING', 'FORMATTING', 'IMPORTING'].includes(data.status)) {
+                    statusBadge.className += 'badge-warning';
+                } else {
+                    statusBadge.className += 'badge-secondary';
+                }
+                
+                // Update progress bar
+                const progressBar = document.getElementById('progress-bar-{{ task.id }}');
+                const progressText = document.getElementById('progress-{{ task.id }}');
+                progressBar.style.width = data.progress + '%';
+                progressBar.setAttribute('aria-valuenow', data.progress);
+                progressText.innerText = data.progress + '%';
+                
+                // Update progress bar color
+                progressBar.className = 'progress-bar ';
+                if (data.status === 'COMPLETED') {
+                    progressBar.className += 'bg-success';
+                } else if (data.status === 'FAILED') {
+                    progressBar.className += 'bg-danger';
+                } else {
+                    progressBar.className += 'bg-warning';
+                }
+                
+                // Update rows count
+                document.getElementById('rows-{{ task.id }}').innerText = 
+                    data.processed_rows + ' / ' + data.total_rows;
+            });
+        {% endfor %}
+    }, 5000);
+</script>
+{% endblock %}
