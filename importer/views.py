@@ -9,6 +9,8 @@ from django.db import transaction
 from .forms import CSVUploadForm
 from .models import ImportTask, ErrorLog, Student, Course, Enrolment
 
+def index(request):
+        return redirect('importer:upload_csv')
 
 class UploadCSVView(View):
     def get(self, request):

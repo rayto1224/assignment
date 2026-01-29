@@ -1,0 +1,21 @@
+student_id,surname,first_name,birth_date,program,registration_date,course_id,title,start_date,lecture_hours,enrolment_date
+S93810,Wong,Ka,2003-04-26,Bachelor of Engineering (Electrical),2024-02-20,C303,Data Structures and Algorithms,2025-10-17,75,2024-10-16
+S81482,Wong,Yin,1995-05-11,Bachelor of Computer Science,2014-03-03,C404,Database Systems,2025-05-17,60,2017-01-30
+S13478,Cheung,Yiu,2003/12/25,Bachelor of Business Administration,2025-01-14,C505,Machine Learning Fundamentals,2025-11-30,60,2025-02-26
+S65392,Wang,Man,1996-09-28,Bachelor of Business Administration,2019-05-23,C202,Calculus I,2022-07-18,60,2021-08-08
+S57052,Wang,Man,2004-01-19,Bachelor of Computer Science,2029-04-23,C202,Calculus I,2022-06-11,60,2031-07-07
+S10001,Chan,Ka Ming,2000-03-15,Bachelor of Computer Science,2021-09-01,C909,Business Statistics,2025-07-11,45,2023-05-24
+S10001,Chan,Ka Ming,2000-03-15,Bachelor of Computer Science,2021-09-01,C010,Artificial Intelligence,2025-03-28,60,2023-10-11
+S35203,Wong,Ka,2002-06-01,Bachelor of Business Administration,2024-01-13,C404,Database Systems,2024-02-18,60,2024-09-05
+S46434,Leung,Yan,2003/12-25,Bachelor of Engineering (Electrical),2019-08-16,C505,Machine Learning Fundamentals,2024-12-29,60,2020-02-08
+S42087,Lee,Sze,1999-04-04,Bachelor of Engineering (Electrical),2020-09-21,C606,Software Engineering,2023-04-15,75,2021-02-12
+S14207,Wang,Yin,1998-01-01,Bachelor of Computer Science,2019-04-21,C606,Software Engineering,2025-09-04,75,2020-07-29
+S75435,Chen,Sze,1996-08-08,Bachelor of Engineering (Electrical),2016-06-15,C909,Business Statistics,2025-04-10,45,25/Dec/2022
+S62350,Wang,Tsz,1996-07-20,Bachelor of Science in Biology,2021-03-08,C101,Introduction to Programming,2022-11-10,45,2021-11-17
+S92240,Lee,Yin,2001-09-08,Bachelor of Computer Science,2025-09-23,C010,Artificial Intelligence,2024-12-19,60,2028-06-07
+S42953,Chan,Wing,2002-08-24,Bachelor of Science in Biology,2021.09.01,C606,Software Engineering,2024-06-09,75,2025-10-04
+S30730,Leung,Ka,2005-09-11,Master of Data Science,2027-11-26,C303,Data Structures and Algorithms,2022-08-06,75,2030-10-30
+S91959,Liu,Yiu,2001-10-30,Bachelor of Business Administration,2021-11-10,C303,Data Structures and Algorithms,2025-05-11,75,2021-12-11
+S52487,Leung,Ka,1996-04-03,Bachelor of Engineering (Electrical),2018-02-04,C101,Introduction to Programming,2025-03-07,45,2019-07-12
+S20322,Wong,Sze,2004-02-25,Bachelor of Computer Science,2021.09.01,C808,Organic Chemistry,2024-12-16,60,2024-11-04
+S89507,Chen,Tsz,2005-06-01,Bachelor of Science in Biology,2026-05-11,C707,Linear Algebra,2024-06-16,45,2028-07-13
